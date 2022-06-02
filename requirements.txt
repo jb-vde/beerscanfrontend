@@ -7,6 +7,6 @@ wheel>=0.29
 # API
 streamlit
 opencv-python
-PIL
+pillow
 pybase64
 requests
