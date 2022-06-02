@@ -6,10 +6,7 @@ wheel>=0.29
 
 # API
 streamlit
-opencv-python
+opencv-python-headless
 pillow
 pybase64
 requests
-ffmpeg
-libsm6
-libxext6
