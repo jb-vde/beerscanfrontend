@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/maelkocab/code/jb-vde/beerscanfrontend'
+make: Entering directory `/Users/jbvandeneynde/code/jb-vde/beerscanfrontend'
 pip install -r requirements.txt
-make: Leaving directory `/Users/maelkocab/code/jb-vde/beerscanfrontend'
+make: Leaving directory `/Users/jbvandeneynde/code/jb-vde/beerscanfrontend'
  
