@@ -70,9 +70,7 @@ with st.expander(" "):
     uploaded_file = st.file_uploader("png or jpg",type=["png","jpg"])
     if uploaded_file is not None:
         with st.spinner('Wait for it...'):
-            time.sleep(5)
-            st.success('Done!')
-        with Image.open(uploaded_file) as im:
-            im.save("images/biere.jpg")
-        req = boxes("images/biere.jpg")
-        st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB),req))
+            with Image.open(uploaded_file) as im:
+                im.save("images/biere.jpg")
+            req = boxes("images/biere.jpg")
+            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB),req))
