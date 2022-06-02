@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 import cv2
-from beerscanfrontend.utils import rectangle,boxes
+from beerscanfrontend.utils import rectangle, boxes_request
 from PIL import Image
 import time
 
@@ -72,5 +72,8 @@ with st.expander(" "):
         with st.spinner('Wait for it...'):
             with Image.open(uploaded_file) as im:
                 im.save("images/biere.jpg")
-            req = boxes("images/biere.jpg")
-            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB),req))
+            boxes = boxes_request("images/biere.jpg")
+
+            if not bool(boxes):
+                st.markdown("No bottle found in this picture, please try another one")
+            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB), boxes))
