@@ -1,0 +1,19 @@
+body {
+  color: #efa767;
+  background-color: #e9d96f;
+
+}
+
+.st-bs {
+  background-color: rgb(110, 110, 110);
+}
+.css-hy8qiv {visibility: hidden;}
+
+.stApp {
+  background-image: url("images/background2.png");
+  background-size: cover;
+}
+
+div[data-testid="block-container css-12oz5g7 egzxvld2"] > div:first-of-type {
+  background-color: red;
+}
