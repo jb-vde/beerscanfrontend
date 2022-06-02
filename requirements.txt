@@ -10,3 +10,6 @@ opencv-python
 pillow
 pybase64
 requests
+ffmpeg
+libsm6
+libxext6
