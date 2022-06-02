@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Jun  2 11:10:03 2022
+# Make data base, printed on Thu Jun  2 11:21:32 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 HOMEBREW_NO_ANALYTICS = 1
 # environment
@@ -27,15 +29,15 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/maelkocab/code/jb-vde/beerscanfrontend
+CURDIR := /Users/jbvandeneynde/code/jb-vde/beerscanfrontend
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"25fe6a3290ec415596628d4afc87a88c.fr","_translationsConfigFile":"/Users/maelkocab/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/tcf.json","_cacheRoot":"/Users/maelkocab/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr","_resolvedLanguagePackCoreLocation":"/Users/maelkocab/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/maelkocab/Library/Application Support/Code/clp/25fe6a3290ec415596628d4afc87a88c.fr/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # environment
-GOOGLE_APPLICATION_CREDENTIALS = /Users/maelkocab/Documents/JSON_KEY_GC/wagon-bootcamp-907-338251b197b8.json
+GOOGLE_APPLICATION_CREDENTIALS = /Users/jbvandeneynde/code/jb-vde/gcp/wagon-data-bootcamp-346912-79b16cf34457.json
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
@@ -45,29 +47,33 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # makefile (from `Makefile', line 47)
 PYPI_USERNAME = <AUTHOR>
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/jm/qvw36f7s4pbbzxbhhs5s9x8r0000gn/T/vscode-ipc-66500483-21cb-4e0b-b096-94f8b744b03a.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/26/zk52pgg12hg_jj7brdx166mw0000gn/T/vscode-ipc-f22d2ae1-e19f-4ea4-949c-679214b3b1f1.sock
 # environment
-VSCODE_CWD = /
+VSCODE_CWD = /Users/jbvandeneynde/code/jb-vde/beerscanfrontend
 # environment
-PATH = /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:./bin:./node_modules/.bin:/Users/maelkocab/.pyenv/plugins/pyenv-virtualenv/shims:/Users/maelkocab/.rbenv/bin:/Users/maelkocab/.pyenv/plugins/pyenv-virtualenv/shims:/Users/maelkocab/.pyenv/shims:/Users/maelkocab/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+PATH = /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:./bin:./node_modules/.bin:/Users/jbvandeneynde/.pyenv/plugins/pyenv-virtualenv/shims:/Users/jbvandeneynde/.rbenv/bin:/Users/jbvandeneynde/.pyenv/plugins/pyenv-virtualenv/shims:/Users/jbvandeneynde/.pyenv/shims:/Users/jbvandeneynde/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+VIRTUAL_ENV = /Users/jbvandeneynde/.pyenv/versions/3.8.13/envs/beerscan
+# environment
+LaunchInstanceID = 8B9CA906-F5CC-4D08-8311-9BD75E539B42
 # environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-PYENV_ROOT = /Users/maelkocab/.pyenv
+PYENV_ROOT = /Users/jbvandeneynde/.pyenv
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.YcqZTA1Lhp/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.JcbdMUmi0d/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/maelkocab/code/jb-vde/beerscanfrontend
+PWD = /Users/jbvandeneynde/code/jb-vde/beerscanfrontend
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -75,13 +81,15 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 PYENV_SHELL = zsh
 # environment
-HOME = /Users/maelkocab
+HOME = /Users/jbvandeneynde
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/maelkocab/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CLI = 1
 # environment
-LOGNAME = maelkocab
+VSCODE_CODE_CACHE_PATH = /Users/jbvandeneynde/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+# environment
+LOGNAME = jbvandeneynde
 # environment
 BUNDLER_EDITOR = code
 # environment
@@ -91,6 +99,7 @@ PYTHONBREAKPOINT = ipdb.set_trace
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
+ 
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 XPC_FLAGS = 0x0
@@ -99,29 +108,33 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 3
 # default
 MAKE_VERSION := 3.81
 # environment
-USER = maelkocab
+USER = jbvandeneynde
 # makefile
 .DEFAULT_GOAL := install_requirements
+# environment
+TERM_SESSION_ID = 29EB4043-1BF8-410B-A21E-F6EC3B01DCA7
 # environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
 # default
 .VARIABLES := 
 # environment
-TMPDIR = /var/folders/jm/qvw36f7s4pbbzxbhhs5s9x8r0000gn/T/
+TMPDIR = /var/folders/26/zk52pgg12hg_jj7brdx166mw0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/maelkocab/Library/Application Support/Code/1.67.2-main.sock
+VSCODE_IPC_HOOK = /Users/jbvandeneynde/Library/Application Support/Code/1.67.2-main.sock
 # environment
-PYTHONPATH = /Users/maelkocab/code/Rhubard/data-challenges/04-Decision-Science:
+PYTHONPATH = /Users/jbvandeneynde/code/jb-vde/data-challenges/04-Decision-Science:
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -129,9 +142,11 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-NVM_DIR = /Users/maelkocab/.nvm
+TERM_PROGRAM_VERSION = 444
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.42402586.42402592
+NVM_DIR = /Users/jbvandeneynde/.nvm
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.3200982.3200988.D6917CFC-2EA0-4E86-A7C2-AE4F831B51F0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -149,13 +164,21 @@ EDITOR = code
 # environment
 PAGER = less
 # environment
+DOCKER_IMAGE_NAME = beerscan-image
+# environment
 LC_ALL = C
 # environment
 PYENV_VIRTUALENV_DISABLE_PROMPT = 1
+# environment
+PYENV_VIRTUAL_ENV = /Users/jbvandeneynde/.pyenv/versions/3.8.13/envs/beerscan
+# environment
+SECURITYSESSIONID = 186a3
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
+# environment
+PROJECT_ID = wagon-data-bootcamp-346912
 # environment
 PYENV_VIRTUALENV_INIT = 1
 # default
@@ -165,9 +188,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1144
+TERM = xterm-256color
+# environment
+VSCODE_PID = 392
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=2/103=2%
+# Load=89/1024=9%, Rehash=0, Collisions=2/115=2%
 
 # Pattern-specific Variable Values
 
@@ -175,7 +200,7 @@ VSCODE_PID = 1144
 
 # Directories
 
-# . (device 16777220, inode 43729456): 19 files, no impossibilities.
+# . (device 16777226, inode 4291533): 19 files, no impossibilities.
 
 # 19 files, no impossibilities in 1 directories.
 
@@ -196,6 +221,7 @@ black:
 all: clean install test black check_code
 #  Command-line target.
 #  Implicit rule search has been done.
+ 
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
@@ -227,7 +253,7 @@ pypi:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 10:35:16
+#  Last modified 2022-06-02 10:36:35
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -294,7 +320,6 @@ deploy_heroku:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  commands to execute (from `Makefile', line 72):
 	-@git push heroku master
 	-@heroku ps:scale web=1
@@ -368,6 +393,7 @@ install:
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 29):
+ 
 	@pip install . -U
 	
 
@@ -384,6 +410,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jun  2 11:10:03 2022
+# Finished Make data base on Thu Jun  2 11:21:32 2022
 
  
