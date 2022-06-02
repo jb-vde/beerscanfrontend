@@ -1,14 +1,10 @@
-from email.mime import image
 import streamlit as st
 import base64
 import cv2
 import numpy as np
-import requests
-from beerscanfrontend.rectangle import rectangle
+from beerscanfrontend.utils import rectangle,boxes
 from PIL import Image
 import time
-api_response = {'boxes': {'box_1': {'startX': 952, 'startY': 584, 'endX': 1125, 'endY': 953}, 'box_2': {'startX': 41, 'startY': 316, 'endX': 204, 'endY': 745}}}
-
 
 st.set_page_config(
             page_title="BeerScan", # => Quick reference - Streamlit
@@ -56,9 +52,9 @@ with st.expander(" "):
     uploaded_file = st.file_uploader("png or jpg",type=["png","jpg"])
     if uploaded_file is not None:
         with st.spinner('Wait for it...'):
-            while time.sleep(5):
-                st.image(uploaded_file)
+            time.sleep(5)
             st.success('Done!')
         with Image.open(uploaded_file) as im:
             im.save("images/biere.jpg")
-        st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB),api_response))
+        req = boxes("images/biere.jpg")
+        st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB),req))
