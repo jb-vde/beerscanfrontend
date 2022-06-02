@@ -71,9 +71,12 @@ with st.expander(" "):
     if uploaded_file is not None:
         with st.spinner('Wait for it...'):
             with Image.open(uploaded_file) as im:
-                im.save("images/biere.jpg")
-            boxes = boxes_request("images/biere.jpg")
+                # rgb_im = im.convert('RGB')
+                # rgb_im.save("images/biere.jpg")
+                im.save("images/biere.png")
+
+            boxes = boxes_request("images/biere.png")
 
             if not bool(boxes):
                 st.markdown("No bottle found in this picture, please try another one")
-            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.jpg"), cv2.COLOR_BGR2RGB), boxes))
+            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.png"), cv2.COLOR_BGR2RGB), boxes))
