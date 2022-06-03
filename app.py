@@ -1,13 +1,8 @@
-import re
-from urllib import request
 import streamlit as st
 import base64
 import cv2
 from beerscanfrontend.utils import rectangle, boxes_request
-from PIL import Image
-import time
 import numpy as np
-from io import StringIO
 
 
 st.set_page_config(
