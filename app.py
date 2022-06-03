@@ -64,7 +64,7 @@ with st.container():
 
 
 with st.expander(" "):
-    uploaded_file = st.file_uploader("png or jpg",type=["png","jpg"])
+    uploaded_file = st.file_uploader("png or jpg",type=["png","jpg","JPEG","WEBP"])
     if uploaded_file is not None:
         with st.spinner('Wait for it...'):
             #converting the upload to a np_array
