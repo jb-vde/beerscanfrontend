@@ -8,8 +8,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Jun  2 11:10:03 2022
+# Make data base, printed on Thu Jun  2 15:24:05 2022
 
+ 
 # Variables
 
 # automatic
@@ -45,7 +46,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # makefile (from `Makefile', line 47)
 PYPI_USERNAME = <AUTHOR>
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/jm/qvw36f7s4pbbzxbhhs5s9x8r0000gn/T/vscode-ipc-66500483-21cb-4e0b-b096-94f8b744b03a.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/jm/qvw36f7s4pbbzxbhhs5s9x8r0000gn/T/vscode-ipc-f7f4f948-e1a6-479c-84ba-7c754b44c8e3.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -116,6 +117,7 @@ MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/jm/qvw36f7s4pbbzxbhhs5s9x8r0000gn/T/
+ 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -175,9 +177,9 @@ VSCODE_PID = 1144
 
 # Directories
 
-# . (device 16777220, inode 43729456): 19 files, no impossibilities.
+# . (device 16777220, inode 43729456): 20 files, no impossibilities.
 
-# 19 files, no impossibilities in 1 directories.
+# 20 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -256,6 +258,7 @@ heroku_login:
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 66):
 	-@heroku login
+ 
 	
 
 check_code:
@@ -294,7 +297,6 @@ deploy_heroku:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 #  commands to execute (from `Makefile', line 72):
 	-@git push heroku master
 	-@heroku ps:scale web=1
@@ -360,6 +362,7 @@ pypi_test:
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 52):
+ 
 	@twine upload -r testpypi dist/* -u $(PYPI_USERNAME)
 	
 
@@ -384,6 +387,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jun  2 11:10:03 2022
+# Finished Make data base on Thu Jun  2 15:24:05 2022
 
  
