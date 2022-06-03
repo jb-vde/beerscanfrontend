@@ -2,7 +2,6 @@ import requests
 import base64
 import json
 import cv2
-import numpy as np
 
 URL_BASE = 'https://beerscan-image-wkgvoiogvq-ew.a.run.app'
 URL_BOXES = URL_BASE + '/predict_boxes'
