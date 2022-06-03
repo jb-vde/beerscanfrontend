@@ -17,8 +17,9 @@ def rectangle(image, request_results):
 
 def boxes_request(im_bytes):
 
-    """with open(image_file, "rb") as f:
-        im_bytes = f.read()"""
+    """Request to api coordinates of the rectangles boxes surrounding beer bottles
+
+    """
 
     img_b64 = base64.b64encode(im_bytes).decode("utf8")
 
