@@ -10,5 +10,4 @@ opencv-python-headless
 pillow
 pybase64
 requests
-json
 numpy
