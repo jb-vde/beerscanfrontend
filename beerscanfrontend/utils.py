@@ -2,6 +2,7 @@ import requests
 import base64
 import json
 import cv2
+import numpy as np
 
 URL_BASE = 'https://beerscan-image-wkgvoiogvq-ew.a.run.app'
 URL_BOXES = URL_BASE + '/predict_boxes'
@@ -15,18 +16,10 @@ def rectangle(image, request_results):
     return image
 
 
-<<<<<<< HEAD
 def boxes_request(im_bytes):
 
-    """Request to api coordinates of the rectangles boxes surrounding beer bottles
-
-    """
-=======
-def boxes_request(image_file):
-
-    with open(image_file, "rb") as f:
-        im_bytes = f.read()
->>>>>>> cc7b28bda21eb0dc61fde693804c85ebf3ee4f6e
+    """with open(image_file, "rb") as f:
+        im_bytes = f.read()"""
 
     img_b64 = base64.b64encode(im_bytes).decode("utf8")
 
