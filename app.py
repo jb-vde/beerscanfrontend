@@ -1,11 +1,13 @@
+import re
+from urllib import request
 import streamlit as st
 import base64
 import cv2
 from beerscanfrontend.utils import rectangle, boxes_request
 from PIL import Image
 import time
-
-
+import numpy as np
+from io import StringIO
 
 
 st.set_page_config(
@@ -70,13 +72,18 @@ with st.expander(" "):
     uploaded_file = st.file_uploader("png or jpg",type=["png","jpg"])
     if uploaded_file is not None:
         with st.spinner('Wait for it...'):
-            with Image.open(uploaded_file) as im:
-                # rgb_im = im.convert('RGB')
-                # rgb_im.save("images/biere.jpg")
-                im.save("images/biere.png")
+            #converting the upload to a np_array
+            bytes_res = uploaded_file.getvalue()
+            nparr = np.fromstring(bytes_res, np.uint8)
 
-            boxes = boxes_request("images/biere.png")
+            #converting nparray back to a image for the rectangle fcts
+            img_np = cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB)
 
+            #calling the api through a boxes fonction to find the bottles
+            boxes = boxes_request(bytes_res)
+
+            #case of no bottles
             if not bool(boxes):
                 st.markdown("No bottle found in this picture, please try another one")
-            st.image(rectangle(cv2.cvtColor(cv2.imread("images/biere.png"), cv2.COLOR_BGR2RGB), boxes))
+            #Making the new image with the rectangles
+            st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB),boxes))

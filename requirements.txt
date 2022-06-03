@@ -10,3 +10,8 @@ opencv-python-headless
 pillow
 pybase64
 requests
+<<<<<<< HEAD
+json
+numpy
+=======
+>>>>>>> cc7b28bda21eb0dc61fde693804c85ebf3ee4f6e
