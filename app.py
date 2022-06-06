@@ -64,9 +64,9 @@ with st.container():
 
 
 with st.expander(" "):
-    uploaded_file = st.file_uploader("Please upload a beer bottle picture",type=["PNG","JPG","JPEG","WEBP"])
+    uploaded_file = st.file_uploader("Please upload a beer bottle picture", type=["PNG","JPG","JPEG","WEBP"])
     if uploaded_file is not None:
-        with st.spinner('Wait for it...'):
+        with st.spinner('Bottle detection'):
             #converting the upload to a np_array
             bytes_res = uploaded_file.getvalue()
             nparr = np.fromstring(bytes_res, np.uint8)
@@ -83,6 +83,8 @@ with st.expander(" "):
             #Making the new image with the rectangles
             st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), boxes))
 
+
+        with st.spinner('Beer identification'):
             beer_name = beer_identification_request(bytes_res)[0]
             beer_info = search_beer(beer_name)
 

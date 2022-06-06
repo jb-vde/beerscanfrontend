@@ -11,3 +11,4 @@ pillow
 pybase64
 requests
 numpy
+selenium
