@@ -53,7 +53,7 @@ def background_image_style(path):
     '''
     return style
 
-image_path = 'images/background.png'
+image_path = 'images/background3.png'
 
 st.write(background_image_style(image_path), unsafe_allow_html=True)
 with st.container():
