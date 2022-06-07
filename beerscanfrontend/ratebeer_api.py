@@ -1,9 +1,14 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+
 
 
 def flatten(list):
@@ -28,11 +33,26 @@ def api_response(beer_info_list):
     return dict(zip(key_list, value_list))
 
 
+
+def load_driver():
+    opts = Options()
+    opts.binary_location = os.environ.get('FIREFOX_BIN')
+    serv = Service(os.environ.get('GECKODRIVER_PATH'))
+
+	# enable trace level for debugging
+    opts.log.level = "trace"
+    opts.add_argument("-remote-debugging-port=9224")
+    opts.add_argument("-headless")
+    opts.add_argument("-disable-gpu")
+    opts.add_argument("-no-sandbox")
+    firefox_driver = webdriver.Firefox(service=serv, options=opts)
+
+    return firefox_driver
+
+
 def search_beer(beer_name):
 
-    options = Options()
-    options.headless = True
-    driver = webdriver.Firefox(options=options)
+    driver = load_driver()
 
     query = make_query(beer_name)
     driver.get(f'https://www.ratebeer.com/search?q={query}&tab=beer')
