@@ -45,9 +45,9 @@ def load_driver():
     opts.add_argument("-headless")
     opts.add_argument("-disable-gpu")
     opts.add_argument("-no-sandbox")
-    firefox_driver = webdriver.Firefox(service=serv, options=opts)
+    driver = webdriver.Firefox(service=serv, options=opts)
 
-    return firefox_driver
+    return driver
 
 
 def search_beer(beer_name):
