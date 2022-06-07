@@ -84,15 +84,15 @@ with st.expander(" "):
             st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), boxes))
 
 
-        with st.spinner('Beer identification'):
-            beer_name = beer_identification_request(bytes_res)[0]
-            beer_info = search_beer(beer_name)
+        # with st.spinner('Beer identification'):
+        #     beer_name = beer_identification_request(bytes_res)[0]
+        #     beer_info = search_beer(beer_name)
 
-            st.markdown(f"Beer name: {beer_info['beer']}")
-            st.markdown(f"Brewery:  {beer_info['brewery']}")
-            st.markdown(f"Style: {beer_info['style']}")
-            st.markdown(f"ABV: {beer_info['abv']}")
-            st.markdown(f"Overall score: {beer_info['overall_score']}/100")
-            st.markdown(f"Style score: {beer_info['style_score']}/100")
-            st.markdown(f"Star rating: {beer_info['star_rating']}/5")
-            st.markdown(f"Number of reviews: {beer_info['n_reviews']}")
+        #     st.markdown(f"Beer name: {beer_info['beer']}")
+        #     st.markdown(f"Brewery:  {beer_info['brewery']}")
+        #     st.markdown(f"Style: {beer_info['style']}")
+        #     st.markdown(f"ABV: {beer_info['abv']}")
+        #     st.markdown(f"Overall score: {beer_info['overall_score']}/100")
+        #     st.markdown(f"Style score: {beer_info['style_score']}/100")
+        #     st.markdown(f"Star rating: {beer_info['star_rating']}/5")
+        #     st.markdown(f"Number of reviews: {beer_info['n_reviews']}")
