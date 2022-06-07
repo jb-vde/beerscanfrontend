@@ -10,7 +10,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
 
-
 def flatten(list):
 
     return [x for sublist in list for x in sublist]
