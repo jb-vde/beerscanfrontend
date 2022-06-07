@@ -83,7 +83,6 @@ with st.expander(" "):
             #Making the new image with the rectangles
             st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), boxes))
 
-
         # with st.spinner('Beer identification'):
         #     beer_name = beer_identification_request(bytes_res)[0]
         #     beer_info = search_beer(beer_name)
