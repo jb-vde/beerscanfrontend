@@ -1,8 +1,7 @@
 import streamlit as st
 import base64
 import cv2
-from beerscanfrontend.utils import beer_identification_request, rectangle, boxes_request
-from beerscanfrontend.ratebeer_api import search_beer
+from beerscanfrontend.utils import rectangle, boxes_request
 import numpy as np
 
 
