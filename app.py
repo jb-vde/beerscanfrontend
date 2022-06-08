@@ -3,6 +3,7 @@ import base64
 import cv2
 from beerscanfrontend.utils import rectangle, api_request
 import numpy as np
+import pandas as pd
 
 
 st.set_page_config(
@@ -75,7 +76,6 @@ with st.expander(" "):
 
             #calling the api through a boxes fonction to find the bottles
             beers = api_request(bytes_res)
-
             #case of no bottles
             if not bool(beers):
                 st.markdown("No bottle found in this picture, please try another one")
@@ -85,15 +85,28 @@ with st.expander(" "):
 
 
         with st.spinner('Beer(s) identification'):
+            data = []
+            columns = ['Beer', 'Brewery', 'Style', 'Overall score',
+                       'Style score', 'Star rating', 'Number of reviews']
+            index = []
 
             for beer in beers.values():
+                row = []
+                index.append(beer["beer_name"][0])
                 beer_info = beer['info']
-
-                st.markdown(f"Beer name: {beer_info['beer']}")
-                st.markdown(f"Brewery:  {beer_info['brewery']}")
-                st.markdown(f"Style: {beer_info['style']}")
-                #st.markdown(f"ABV: {beer_info['abv']}")
-                st.markdown(f"Overall score: {beer_info['overall_score']}/100")
-                st.markdown(f"Style score: {beer_info['style_score']}/100")
-                st.markdown(f"Star rating: {beer_info['star_rating']}/5")
-                st.markdown(f"Number of reviews: {beer_info['n_reviews']}")
+                if beer_info:
+                    row.append(beer_info['beer'])
+                    row.append(beer_info['brewery'])
+                    row.append(beer_info['style'])
+                    row.append(f"{beer_info['overall_score']}/100")
+                    row.append(f"{beer_info['style_score']}/100")
+                    row.append(f"{beer_info['star_rating']}/5")
+                    row.append(beer_info['n_reviews'])
+                else:
+                    row = [None]*len(columns) # None for each column
+                data.append(row)
+            print('\n\n INDEX: \n\n')
+            print(index, data)
+            print('\n\n')
+            df_display = pd.DataFrame(data=data, columns=columns, index=index)
+            st.table(df_display)

@@ -33,5 +33,6 @@ def api_request(im_bytes):
         print(data)
     except requests.exceptions.RequestException:
         print(response.text)
+        data =  {}
 
     return data
