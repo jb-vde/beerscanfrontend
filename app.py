@@ -93,7 +93,7 @@ with st.expander(" "):
 
             for beer in beers.values():
                 row = []
-                index.append(beer["beer_name"])
+                index.append(beer["beer_name"][0])
                 beer_info = beer['info']
                 if beer_info:
                     row.append(beer_info['beer'])
@@ -104,8 +104,10 @@ with st.expander(" "):
                     row.append(f"{beer_info['star_rating']}/5")
                     row.append(beer_info['n_reviews'])
                 else:
-                    row += [None]*(len(columns)-1) # None for each column
+                    row = [None]*len(columns) # None for each column
                 data.append(row)
+            print('\n\n INDEX: \n\n')
             print(index, data)
+            print('\n\n')
             df_display = pd.DataFrame(data=data, columns=columns, index=index)
             st.table(df_display)
