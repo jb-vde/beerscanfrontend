@@ -3,7 +3,7 @@ import base64
 import json
 import cv2
 
-URL_BASE = 'https://safe---beerscan-image-wkgvoiogvq-ew.a.run.app'
+URL_BASE = 'https://beerscan-image-wkgvoiogvq-ew.a.run.app'
 URL_BEER_ID = URL_BASE + '/identify_beers'
 
 
