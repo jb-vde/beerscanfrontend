@@ -6,7 +6,7 @@ wheel>=0.29
 
 # API
 streamlit
-opencv-python-headless
+opencv-python-headless==4.2.0.34
 pillow
 pybase64
 requests
