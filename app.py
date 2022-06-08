@@ -106,8 +106,5 @@ with st.expander(" "):
                 else:
                     row = [None]*len(columns) # None for each column
                 data.append(row)
-            print('\n\n INDEX: \n\n')
-            print(index, data)
-            print('\n\n')
             df_display = pd.DataFrame(data=data, columns=columns, index=index)
             st.table(df_display)
