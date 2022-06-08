@@ -1,7 +1,7 @@
 import streamlit as st
 import base64
 import cv2
-from beerscanfrontend.utils import rectangle, boxes_request
+from beerscanfrontend.utils import rectangle, api_request
 import numpy as np
 
 
@@ -74,23 +74,26 @@ with st.expander(" "):
             img_np = cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB)
 
             #calling the api through a boxes fonction to find the bottles
-            boxes = boxes_request(bytes_res)
-
+            beers = api_request(bytes_res)
+            print(beers)
             #case of no bottles
-            if not bool(boxes):
+            if not bool(beers):
                 st.markdown("No bottle found in this picture, please try another one")
             #Making the new image with the rectangles
-            st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), boxes))
 
-        # with st.spinner('Beer identification'):
-        #     beer_name = beer_identification_request(bytes_res)[0]
-        #     beer_info = search_beer(beer_name)
+            st.image(rectangle(cv2.cvtColor(cv2.imdecode(nparr, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB), beers))
 
-        #     st.markdown(f"Beer name: {beer_info['beer']}")
-        #     st.markdown(f"Brewery:  {beer_info['brewery']}")
-        #     st.markdown(f"Style: {beer_info['style']}")
-        #     st.markdown(f"ABV: {beer_info['abv']}")
-        #     st.markdown(f"Overall score: {beer_info['overall_score']}/100")
-        #     st.markdown(f"Style score: {beer_info['style_score']}/100")
-        #     st.markdown(f"Star rating: {beer_info['star_rating']}/5")
-        #     st.markdown(f"Number of reviews: {beer_info['n_reviews']}")
+
+        with st.spinner('Beer(s) identification'):
+
+            for beer in beers.values():
+                beer_info = beer['info']
+
+                st.markdown(f"Beer name: {beer_info['beer']}")
+                st.markdown(f"Brewery:  {beer_info['brewery']}")
+                st.markdown(f"Style: {beer_info['style']}")
+                #st.markdown(f"ABV: {beer_info['abv']}")
+                st.markdown(f"Overall score: {beer_info['overall_score']}/100")
+                st.markdown(f"Style score: {beer_info['style_score']}/100")
+                st.markdown(f"Star rating: {beer_info['star_rating']}/5")
+                st.markdown(f"Number of reviews: {beer_info['n_reviews']}")
