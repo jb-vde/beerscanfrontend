@@ -87,12 +87,12 @@ with st.expander(" "):
         with st.spinner('Beer(s) identification'):
 
             for beer in beers.values():
-                beer_info = beers['info']
+                beer_info = beer['info']
 
                 st.markdown(f"Beer name: {beer_info['beer']}")
                 st.markdown(f"Brewery:  {beer_info['brewery']}")
                 st.markdown(f"Style: {beer_info['style']}")
-                st.markdown(f"ABV: {beer_info['abv']}")
+                #st.markdown(f"ABV: {beer_info['abv']}")
                 st.markdown(f"Overall score: {beer_info['overall_score']}/100")
                 st.markdown(f"Style score: {beer_info['style_score']}/100")
                 st.markdown(f"Star rating: {beer_info['star_rating']}/5")
