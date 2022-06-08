@@ -4,19 +4,21 @@ import json
 import cv2
 
 URL_BASE = 'https://beerscan-image-wkgvoiogvq-ew.a.run.app'
-URL_BOXES = URL_BASE + '/predict_boxes'
-URL_BEER_ID = URL_BASE + '/identify_beer'
+URL_BEER_ID = URL_BASE + '/identify_beers'
 
 
-def rectangle(image, request_results):
+def rectangle(image, beers):
     color = (0, 255, 0)
-    for elem in request_results.values():
-        cv2.rectangle(image, (elem['startX'], elem['startY']),
-                      (elem['endX'], elem['endY']), color, 2)
+    for beer in beers.values():
+        cv2.rectangle(image, (beer['startX'], beer['startY']),
+                      (beer['endX'], beer['endY']), color, 2)
+        cv2.putText(image, beer["beer_name"][0],
+                    (beer["startX"], beer["startY"]-10),
+                    cv2.FONT_HERSHEY_PLAIN, 1.0, (0,255,0), 2)
     return image
 
 
-def boxes_request(im_bytes):
+def api_request(im_bytes):
     """Api requests for the rectangles coordinates"""
 
     img_b64 = base64.b64encode(im_bytes).decode("utf8")
@@ -24,7 +26,7 @@ def boxes_request(im_bytes):
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
     payload = json.dumps({"image": img_b64})
-    response = requests.post(URL_BOXES, data=payload, headers=headers)
+    response = requests.post(URL_BEER_ID, data=payload, headers=headers)
 
     try:
         data = response.json()
@@ -32,25 +34,4 @@ def boxes_request(im_bytes):
     except requests.exceptions.RequestException:
         print(response.text)
 
-    return data['boxes']
-
-
-def beer_identification_request(im_bytes):
-    """Api requests for the beer identification"""
-
-    return ["Duvel Triple Hop"]
-
-    # img_b64 = base64.b64encode(im_bytes).decode("utf8")
-
-    # headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-
-    # payload = json.dumps({"image": img_b64})
-    # response = requests.post(URL_BEER_ID, data=payload, headers=headers)
-
-    # try:
-    #     data = response.json()
-    #     print(data)
-    # except requests.exceptions.RequestException:
-    #     print(response.text)
-
-    # return data['boxes']
+    return data
