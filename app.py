@@ -106,4 +106,6 @@ with st.expander(" "):
                     row = [None]*len(columns) # None for each column
                 data.append(row)
             df_display = pd.DataFrame(data=data, columns=columns, index=index)
+            #st.dataframe(df_display.style.apply(lambda x: "background-color: red"))
             st.table(df_display)
+            #st.markdown(f"<div style='background-color: black'> </div>", unsafe_allow_html=True)
